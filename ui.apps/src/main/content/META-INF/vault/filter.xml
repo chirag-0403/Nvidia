@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<workspaceFilter version="1.0">
+    <filter root="/apps/nvidia/clientlibs"/>
+    <filter root="/apps/nvidia/components"/>
+    <filter root="/apps/nvidia/i18n"/>
+</workspaceFilter>

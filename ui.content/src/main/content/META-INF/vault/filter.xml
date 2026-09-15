@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<workspaceFilter version="1.0">
+    <filter root="/conf/nvidia" mode="merge"/>
+    <filter root="/content/nvidia" mode="merge"/>
+    <filter root="/content/dam/nvidia" mode="merge">
+        <exclude pattern="/content/dam/nvidia(/.*)?"/>
+        <include pattern="/content/dam/nvidia/jcr:content(/.*)?"/>
+    </filter>
+    <filter root="/content/dam/nvidia/asset.jpg" mode="merge"/>
+    <filter root="/content/experience-fragments/nvidia" mode="merge"/>
+</workspaceFilter>

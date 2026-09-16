@@ -1,0 +1,152 @@
+.custom-footer {
+    background: #000000;
+    color: #ffffff;
+    width: 100%;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Main footer area */
+.custom-footer__container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 50px 30px 40px;
+}
+
+/* Logo */
+.custom-footer__brand {
+    margin-bottom: 40px;
+}
+
+.custom-footer__logo {
+    max-width: 160px;
+    height: auto;
+    display: block;
+}
+
+/* Three columns */
+.custom-footer__columns {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 60px;
+}
+
+/* Column heading */
+.custom-footer__heading {
+    font-size: 18px;
+    font-weight: 600;
+    margin: 0 0 20px;
+}
+
+/* Link list */
+.custom-footer__links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.custom-footer__links li {
+    margin-bottom: 12px;
+}
+
+.custom-footer__links a {
+    color: #cccccc;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.custom-footer__links a:hover {
+    color: #76b900;
+    text-decoration: underline;
+}
+
+
+/* Bottom section */
+.custom-footer__bottom {
+    border-top: 1px solid #444444;
+}
+
+.custom-footer__bottom-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 25px 30px;
+
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+/* Region */
+.custom-footer__region {
+    font-size: 14px;
+    color: #ffffff;
+    margin-right: 20px;
+}
+
+/* Bottom links */
+.custom-footer__legal {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 18px;
+}
+
+.custom-footer__legal a {
+    color: #bbbbbb;
+    text-decoration: none;
+    font-size: 13px;
+}
+
+.custom-footer__legal a:hover {
+    color: #76b900;
+}
+
+/* Copyright */
+.custom-footer__copyright {
+    margin-left: auto;
+    color: #999999;
+    font-size: 12px;
+}
+
+
+/* Tablet */
+@media (max-width: 768px) {
+
+    .custom-footer__columns {
+        grid-template-columns: 1fr 1fr;
+        gap: 35px;
+    }
+
+    .custom-footer__copyright {
+        margin-left: 0;
+        width: 100%;
+    }
+}
+
+
+/* Mobile */
+@media (max-width: 480px) {
+
+    .custom-footer__container {
+        padding: 35px 20px;
+    }
+
+    .custom-footer__columns {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .custom-footer__bottom-container {
+        padding: 20px;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .custom-footer__legal {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .custom-footer__copyright {
+        margin-left: 0;
+    }
+}

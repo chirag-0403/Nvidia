@@ -825,14 +825,17 @@ Bundle-DocURL:
           
           
           <configuration>
-                                                            
-            
-            
-            <useSystemClassLoader>false</useSystemClassLoader>
-                                                        
-          
-          
-          </configuration>
+    <useSystemClassLoader>false</useSystemClassLoader>
+    <childDelegation>true</childDelegation>
+
+    <additionalClasspathDependencies>
+        <additionalClasspathDependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-collections4</artifactId>
+            <version>4.4</version>
+        </additionalClasspathDependency>
+    </additionalClasspathDependencies>
+</configuration>
                                               
         
         
@@ -2772,6 +2775,12 @@ Bundle-DocURL:
       
       
       </dependency>
+<dependency>
+    <groupId>org.apache.commons</groupId>
+    <artifactId>commons-collections4</artifactId>
+    <version>4.4</version>
+    <scope>test</scope>
+</dependency>
                               
       
       

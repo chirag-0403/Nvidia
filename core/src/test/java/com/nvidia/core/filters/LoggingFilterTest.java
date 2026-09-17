@@ -13,6 +13,7 @@
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
  */
+
 package com.nvidia.core.filters;
 
 import java.io.IOException;
@@ -25,6 +26,7 @@ import javax.servlet.ServletException;
 import org.apache.sling.testing.mock.sling.servlet.MockRequestPathInfo;
 import org.apache.sling.testing.mock.sling.servlet.MockSlingHttpServletRequest;
 import org.apache.sling.testing.mock.sling.servlet.MockSlingHttpServletResponse;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -46,18 +48,30 @@ class LoggingFilterTest {
 
     private TestLogger logger = TestLoggerFactory.getTestLogger(fixture.getClass());
 
+    @BeforeAll
+    static void debugCommonsCollections() {
+        System.out.println(
+            "Commons Collections loaded from: " +
+            org.apache.commons.collections4.SetUtils.class
+                .getProtectionDomain()
+                .getCodeSource()
+                .getLocation()
+        );
+    }
+
     @BeforeEach
     void setup() {
         TestLoggerFactory.clear();
     }
-
 
     @Test
     void doFilter(AemContext context) throws IOException, ServletException {
         MockSlingHttpServletRequest request = context.request();
         MockSlingHttpServletResponse response = context.response();
 
-        MockRequestPathInfo requestPathInfo = (MockRequestPathInfo) request.getRequestPathInfo();
+        MockRequestPathInfo requestPathInfo =
+            (MockRequestPathInfo) request.getRequestPathInfo();
+
         requestPathInfo.setResourcePath("/content/test");
         requestPathInfo.setSelectorString("selectors");
 
@@ -66,8 +80,11 @@ class LoggingFilterTest {
         fixture.destroy();
 
         List<LoggingEvent> events = logger.getLoggingEvents();
+
         assertEquals(1, events.size());
+
         LoggingEvent event = events.get(0);
+
         assertEquals(Level.DEBUG, event.getLevel());
         assertEquals(2, event.getArguments().size());
         assertEquals("/content/test", event.getArguments().get(0));

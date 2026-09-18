@@ -2,38 +2,28 @@
 
 <footer class="custom-footer">
 
+    <!-- Main Footer -->
     <div class="custom-footer__container">
-
-        <!-- Logo -->
-        <div class="custom-footer__brand" data-sly-test="${properties.logo}">
-
-            <img class="custom-footer__logo" src="${properties.logo}" alt="${properties.logoAlt}" />
-            <a href="${link.url}">
-                ${link.label}
-            </a>
-
-        </div>
-
 
         <!-- Footer Columns -->
         <div class="custom-footer__columns">
 
-
             <!-- Company Information -->
-            <div class="custom-footer__column" data-sly-test="${properties.companyTitle}">
+            <div class="custom-footer__column"
+                 data-sly-test="${properties.companyTitle}">
 
                 <h3 class="custom-footer__heading">
                     ${properties.companyTitle}
                 </h3>
 
+                <div class="custom-footer__separator"></div>
+
                 <ul class="custom-footer__links">
 
                     <li data-sly-repeat.link="${footer.companyLinks}">
-
                         <a href="${link.url}">
                             ${link.label}
                         </a>
-
                     </li>
 
                 </ul>
@@ -42,20 +32,21 @@
 
 
             <!-- News and Events -->
-            <div class="custom-footer__column" data-sly-test="${properties.newsTitle}">
+            <div class="custom-footer__column"
+                 data-sly-test="${properties.newsTitle}">
 
                 <h3 class="custom-footer__heading">
                     ${properties.newsTitle}
                 </h3>
 
+                <div class="custom-footer__separator"></div>
+
                 <ul class="custom-footer__links">
 
                     <li data-sly-repeat.link="${footer.newsLinks}">
-
                         <a href="${link.url}">
                             ${link.label}
                         </a>
-
                     </li>
 
                 </ul>
@@ -64,23 +55,81 @@
 
 
             <!-- Popular Links -->
-            <div class="custom-footer__column" data-sly-test="${properties.popularTitle}">
+            <div class="custom-footer__column"
+                 data-sly-test="${properties.popularTitle}">
 
                 <h3 class="custom-footer__heading">
                     ${properties.popularTitle}
                 </h3>
 
+                <div class="custom-footer__separator"></div>
+
                 <ul class="custom-footer__links">
 
                     <li data-sly-repeat.link="${footer.popularLinks}">
-
                         <a href="${link.url}">
                             ${link.label}
                         </a>
-
                     </li>
 
                 </ul>
+
+            </div>
+
+        </div>
+
+
+        <!-- Newsletter -->
+        <div class="custom-footer__newsletter"
+             data-sly-test="${properties.newsletterUrl}">
+
+            <a class="custom-footer__newsletter-button"
+               href="${properties.newsletterUrl}">
+
+                Subscribe to NVIDIA Newsletter
+
+            </a>
+
+        </div>
+
+
+        <!-- Social Media -->
+        <div class="custom-footer__social"
+             data-sly-test="${properties.facebookUrl || properties.instagramUrl || properties.youtubeUrl || properties.linkedinUrl}">
+
+            <span class="custom-footer__social-title">
+                Follow NVIDIA
+            </span>
+
+            <div class="custom-footer__social-links">
+
+                <a href="${properties.facebookUrl}"
+                   data-sly-test="${properties.facebookUrl}"
+                   class="custom-footer__social-link"
+                   aria-label="Facebook">
+                    Facebook
+                </a>
+
+                <a href="${properties.instagramUrl}"
+                   data-sly-test="${properties.instagramUrl}"
+                   class="custom-footer__social-link"
+                   aria-label="Instagram">
+                    Instagram
+                </a>
+
+                <a href="${properties.youtubeUrl}"
+                   data-sly-test="${properties.youtubeUrl}"
+                   class="custom-footer__social-link"
+                   aria-label="YouTube">
+                    YouTube
+                </a>
+
+                <a href="${properties.linkedinUrl}"
+                   data-sly-test="${properties.linkedinUrl}"
+                   class="custom-footer__social-link"
+                   aria-label="LinkedIn">
+                    LinkedIn
+                </a>
 
             </div>
 
@@ -94,40 +143,61 @@
 
         <div class="custom-footer__bottom-container">
 
+            <!-- Small NVIDIA Logo -->
+            <div class="custom-footer__brand"
+                 data-sly-test="${properties.logo}">
+
+                <img class="custom-footer__logo"
+                     src="${properties.logo}"
+                     alt="${properties.logoAlt}" />
+
+            </div>
+
+
             <!-- Region -->
-            <span class="custom-footer__region" data-sly-test="${properties.region}">
+            <span class="custom-footer__region"
+                  data-sly-test="${properties.region}">
+
                 ${properties.region}
+
             </span>
 
 
             <!-- Legal Links -->
             <nav class="custom-footer__legal">
 
-                <a href="${properties.privacyUrl}" data-sly-test="${properties.privacyUrl}">
+                <a href="${properties.privacyUrl}"
+                   data-sly-test="${properties.privacyUrl}">
                     Privacy Policy
                 </a>
 
-                <a href="${properties.privacyChoicesUrl}" data-sly-test="${properties.privacyChoicesUrl}">
+                <a href="${properties.privacyChoicesUrl}"
+                   data-sly-test="${properties.privacyChoicesUrl}">
                     Your Privacy Choices
                 </a>
 
-                <a href="${properties.legalUrl}" data-sly-test="${properties.legalUrl}">
+                <a href="${properties.legalUrl}"
+                   data-sly-test="${properties.legalUrl}">
                     Legal
                 </a>
 
-                <a href="${properties.accessibilityUrl}" data-sly-test="${properties.accessibilityUrl}">
+                <a href="${properties.accessibilityUrl}"
+                   data-sly-test="${properties.accessibilityUrl}">
                     Accessibility
                 </a>
 
-                <a href="${properties.policiesUrl}" data-sly-test="${properties.policiesUrl}">
+                <a href="${properties.policiesUrl}"
+                   data-sly-test="${properties.policiesUrl}">
                     Corporate Policies
                 </a>
 
-                <a href="${properties.securityUrl}" data-sly-test="${properties.securityUrl}">
+                <a href="${properties.securityUrl}"
+                   data-sly-test="${properties.securityUrl}">
                     Product Security
                 </a>
 
-                <a href="${properties.contactUrl}" data-sly-test="${properties.contactUrl}">
+                <a href="${properties.contactUrl}"
+                   data-sly-test="${properties.contactUrl}">
                     Contact
                 </a>
 
@@ -135,8 +205,11 @@
 
 
             <!-- Copyright -->
-            <span class="custom-footer__copyright" data-sly-test="${properties.copyright}">
+            <span class="custom-footer__copyright"
+                  data-sly-test="${properties.copyright}">
+
                 ${properties.copyright}
+
             </span>
 
         </div>

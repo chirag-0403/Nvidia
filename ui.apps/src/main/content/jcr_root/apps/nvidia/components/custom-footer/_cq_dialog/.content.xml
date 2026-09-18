@@ -23,7 +23,6 @@
                 <items
                     jcr:primaryType="nt:unstructured">
 
-                    <!-- General -->
                     <general
                         jcr:primaryType="nt:unstructured"
                         jcr:title="General"
@@ -32,18 +31,17 @@
                         <items
                             jcr:primaryType="nt:unstructured">
 
+                            <!-- Logo -->
+
                             <logo
                                 jcr:primaryType="nt:unstructured"
                                 sling:resourceType="granite/ui/components/coral/foundation/form/pathfield"
                                 fieldLabel="Logo"
                                 name="./logo"
                                 rootPath="/content/dam" />
-                            <url
-                                jcr:primaryType="nt:unstructured"
-                                sling:resourceType="granite/ui/components/coral/foundation/form/pathfield"
-                                fieldLabel="Link URL"
-                                name="./url"
-                                rootPath="/content" />
+
+
+                            <!-- Logo Alt Text -->
 
                             <logoAlt
                                 jcr:primaryType="nt:unstructured"
@@ -51,11 +49,17 @@
                                 fieldLabel="Logo Alt Text"
                                 name="./logoAlt" />
 
+
+                            <!-- Copyright -->
+
                             <copyright
                                 jcr:primaryType="nt:unstructured"
                                 sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
                                 fieldLabel="Copyright"
                                 name="./copyright" />
+
+
+                            <!-- Region -->
 
                             <region
                                 jcr:primaryType="nt:unstructured"
@@ -63,11 +67,56 @@
                                 fieldLabel="Region"
                                 name="./region" />
 
+
+                            <!-- Newsletter -->
+
+                            <newsletterUrl
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                fieldLabel="Newsletter URL"
+                                name="./newsletterUrl" />
+
+
+                            <!-- Facebook -->
+
+                            <facebookUrl
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                fieldLabel="Facebook URL"
+                                name="./facebookUrl" />
+
+
+                            <!-- Instagram -->
+
+                            <instagramUrl
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                fieldLabel="Instagram URL"
+                                name="./instagramUrl" />
+
+
+                            <!-- YouTube -->
+
+                            <youtubeUrl
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                fieldLabel="YouTube URL"
+                                name="./youtubeUrl" />
+
+
+                            <!-- LinkedIn -->
+
+                            <linkedinUrl
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                fieldLabel="LinkedIn URL"
+                                name="./linkedinUrl" />
+
                         </items>
+
                     </general>
 
 
-                    <!-- Company -->
                     <company
                         jcr:primaryType="nt:unstructured"
                         jcr:title="Company Information"
@@ -76,11 +125,17 @@
                         <items
                             jcr:primaryType="nt:unstructured">
 
+
+                            <!-- Section Title -->
+
                             <companyTitle
                                 jcr:primaryType="nt:unstructured"
                                 sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
                                 fieldLabel="Section Title"
                                 name="./companyTitle" />
+
+
+                            <!-- Company Links -->
 
                             <companyLinks
                                 jcr:primaryType="nt:unstructured"
@@ -96,11 +151,17 @@
                                     <items
                                         jcr:primaryType="nt:unstructured">
 
+
+                                        <!-- Link Text -->
+
                                         <label
                                             jcr:primaryType="nt:unstructured"
                                             sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
                                             fieldLabel="Link Text"
                                             name="./label" />
+
+
+                                        <!-- Link URL -->
 
                                         <url
                                             jcr:primaryType="nt:unstructured"
@@ -116,10 +177,9 @@
                             </companyLinks>
 
                         </items>
+
                     </company>
 
-
-                    <!-- News -->
                     <news
                         jcr:primaryType="nt:unstructured"
                         jcr:title="News and Events"
@@ -128,11 +188,17 @@
                         <items
                             jcr:primaryType="nt:unstructured">
 
+
+                            <!-- Section Title -->
+
                             <newsTitle
                                 jcr:primaryType="nt:unstructured"
                                 sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
                                 fieldLabel="Section Title"
                                 name="./newsTitle" />
+
+
+                            <!-- News Links -->
 
                             <newsLinks
                                 jcr:primaryType="nt:unstructured"
@@ -148,11 +214,17 @@
                                     <items
                                         jcr:primaryType="nt:unstructured">
 
+
+                                        <!-- Link Text -->
+
                                         <label
                                             jcr:primaryType="nt:unstructured"
                                             sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
                                             fieldLabel="Link Text"
                                             name="./label" />
+
+
+                                        <!-- Link URL -->
 
                                         <url
                                             jcr:primaryType="nt:unstructured"
@@ -168,10 +240,9 @@
                             </newsLinks>
 
                         </items>
+
                     </news>
 
-
-                    <!-- Popular -->
                     <popular
                         jcr:primaryType="nt:unstructured"
                         jcr:title="Popular Links"
@@ -180,11 +251,17 @@
                         <items
                             jcr:primaryType="nt:unstructured">
 
+
+                            <!-- Section Title -->
+
                             <popularTitle
                                 jcr:primaryType="nt:unstructured"
                                 sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
                                 fieldLabel="Section Title"
                                 name="./popularTitle" />
+
+
+                            <!-- Popular Links -->
 
                             <popularLinks
                                 jcr:primaryType="nt:unstructured"
@@ -200,11 +277,17 @@
                                     <items
                                         jcr:primaryType="nt:unstructured">
 
+
+                                        <!-- Link Text -->
+
                                         <label
                                             jcr:primaryType="nt:unstructured"
                                             sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
                                             fieldLabel="Link Text"
                                             name="./label" />
+
+
+                                        <!-- Link URL -->
 
                                         <url
                                             jcr:primaryType="nt:unstructured"
@@ -220,10 +303,9 @@
                             </popularLinks>
 
                         </items>
+
                     </popular>
 
-
-                    <!-- Legal Links -->
                     <legal
                         jcr:primaryType="nt:unstructured"
                         jcr:title="Legal Links"
@@ -232,12 +314,18 @@
                         <items
                             jcr:primaryType="nt:unstructured">
 
+
+                            <!-- Privacy Policy -->
+
                             <privacyUrl
                                 jcr:primaryType="nt:unstructured"
                                 sling:resourceType="granite/ui/components/coral/foundation/form/pathfield"
                                 fieldLabel="Privacy Policy"
                                 name="./privacyUrl"
                                 rootPath="/content" />
+
+
+                            <!-- Your Privacy Choices -->
 
                             <privacyChoicesUrl
                                 jcr:primaryType="nt:unstructured"
@@ -246,12 +334,18 @@
                                 name="./privacyChoicesUrl"
                                 rootPath="/content" />
 
+
+                            <!-- Legal -->
+
                             <legalUrl
                                 jcr:primaryType="nt:unstructured"
                                 sling:resourceType="granite/ui/components/coral/foundation/form/pathfield"
                                 fieldLabel="Legal"
                                 name="./legalUrl"
                                 rootPath="/content" />
+
+
+                            <!-- Accessibility -->
 
                             <accessibilityUrl
                                 jcr:primaryType="nt:unstructured"
@@ -260,6 +354,9 @@
                                 name="./accessibilityUrl"
                                 rootPath="/content" />
 
+
+                            <!-- Corporate Policies -->
+
                             <policiesUrl
                                 jcr:primaryType="nt:unstructured"
                                 sling:resourceType="granite/ui/components/coral/foundation/form/pathfield"
@@ -267,12 +364,18 @@
                                 name="./policiesUrl"
                                 rootPath="/content" />
 
+
+                            <!-- Product Security -->
+
                             <securityUrl
                                 jcr:primaryType="nt:unstructured"
                                 sling:resourceType="granite/ui/components/coral/foundation/form/pathfield"
                                 fieldLabel="Product Security"
                                 name="./securityUrl"
                                 rootPath="/content" />
+
+
+                            <!-- Contact -->
 
                             <contactUrl
                                 jcr:primaryType="nt:unstructured"
@@ -282,12 +385,15 @@
                                 rootPath="/content" />
 
                         </items>
+
                     </legal>
 
                 </items>
+
             </tabs>
 
         </items>
+
     </content>
 
 </jcr:root>

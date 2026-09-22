@@ -1,8 +1,9 @@
+// ==========================================================================
+// NVIDIA Frontend Entry Point
+// ==========================================================================
 
-// Stylesheets
+// Styles
 import "./main.scss";
 
-// Javascript or Typescript
-import "./**/*.js";
-import "./**/*.ts";
-import '../components/**/*.js';
+// Custom Header
+import "../components/custom-header/custom-header";

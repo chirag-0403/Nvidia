@@ -1,0 +1,5 @@
+{
+    "java.configuration.updateBuildConfiguration": "interactive",
+    "typescript.tsdk": "ui.frontend/node_modules/typescript/lib",
+    "typescript.enablePromptUseWorkspaceTsdk": true
+}

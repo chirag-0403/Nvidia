@@ -4,10 +4,13 @@
         "module": "es6",
         "baseUrl": "../ui.frontend",
         "removeComments": true,
-        "allowJs": true,
+        "allowJs": false,
         "preserveConstEnums": true,
         "allowSyntheticDefaultImports": true,
         "sourceMap": true
     },
-    "include": [ "./src/**/*.ts" ]
+    "include": [
+        "./src/**/*.ts",
+        "./src/**/*.d.ts"
+    ]
 }

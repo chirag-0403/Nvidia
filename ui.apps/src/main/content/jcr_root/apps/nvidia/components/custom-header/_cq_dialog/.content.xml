@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<jcr:root
+    xmlns:sling="http://sling.apache.org/sling/1.0"
+    xmlns:jcr="http://www.jcp.org/jcr/1.0"
+    xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="nt:unstructured"
+    jcr:title="NVIDIA Header"
+    sling:resourceType="cq/gui/components/authoring/dialog">
+
+    <content
+        jcr:primaryType="nt:unstructured"
+        sling:resourceType="granite/ui/components/coral/foundation/container">
+
+        <items jcr:primaryType="nt:unstructured">
+
+            <!-- ===================================================== -->
+            <!-- LOGO -->
+            <!-- ===================================================== -->
+
+            <logo
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="granite/ui/components/coral/foundation/form/pathfield"
+                fieldLabel="Logo"
+                name="./logo"
+                rootPath="/content/dam"/>
+
+            <logoLink
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="granite/ui/components/coral/foundation/form/pathfield"
+                fieldLabel="Logo Link"
+                name="./logoLink"
+                rootPath="/content"/>
+
+
+            <!-- ===================================================== -->
+            <!-- NAVIGATION -->
+            <!-- ===================================================== -->
+
+            <!-- Products -->
+
+            <productsLabel
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                fieldLabel="Products Label"
+                name="./productsLabel"
+                value="Products"/>
+
+            <productsLink
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="granite/ui/components/coral/foundation/form/pathfield"
+                fieldLabel="Products Link"
+                name="./productsLink"
+                rootPath="/content"/>
+
+
+            <!-- Solutions -->
+
+            <solutionsLabel
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                fieldLabel="Solutions Label"
+                name="./solutionsLabel"
+                value="Solutions"/>
+
+            <solutionsLink
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="granite/ui/components/coral/foundation/form/pathfield"
+                fieldLabel="Solutions Link"
+                name="./solutionsLink"
+                rootPath="/content"/>
+
+
+            <!-- Industries -->
+
+            <industriesLabel
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                fieldLabel="Industries Label"
+                name="./industriesLabel"
+                value="Industries"/>
+
+            <industriesLink
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="granite/ui/components/coral/foundation/form/pathfield"
+                fieldLabel="Industries Link"
+                name="./industriesLink"
+                rootPath="/content"/>
+
+
+            <!-- Resources -->
+
+            <resourcesLabel
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                fieldLabel="Resources Label"
+                name="./resourcesLabel"
+                value="Resources"/>
+
+            <resourcesLink
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="granite/ui/components/coral/foundation/form/pathfield"
+                fieldLabel="Resources Link"
+                name="./resourcesLink"
+                rootPath="/content"/>
+
+
+            <!-- Company -->
+
+            <companyLabel
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                fieldLabel="Company Label"
+                name="./companyLabel"
+                value="Company"/>
+
+            <companyLink
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="granite/ui/components/coral/foundation/form/pathfield"
+                fieldLabel="Company Link"
+                name="./companyLink"
+                rootPath="/content"/>
+
+
+            <!-- ===================================================== -->
+            <!-- HEADER ACTIONS -->
+            <!-- ===================================================== -->
+
+            <!-- Search -->
+
+            <showSearch
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="granite/ui/components/coral/foundation/form/checkbox"
+                fieldLabel="Search"
+                text="Show Search"
+                name="./showSearch"
+                value="true"
+                checked="{Boolean}true"
+                uncheckedValue="false"/>
+
+            <searchLink
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="granite/ui/components/coral/foundation/form/pathfield"
+                fieldLabel="Search Link"
+                name="./searchLink"
+                rootPath="/content"/>
+
+
+            <!-- Language -->
+
+            <showLanguage
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="granite/ui/components/coral/foundation/form/checkbox"
+                fieldLabel="Language"
+                text="Show Language"
+                name="./showLanguage"
+                value="true"
+                checked="{Boolean}true"
+                uncheckedValue="false"/>
+
+            <languageLink
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="granite/ui/components/coral/foundation/form/pathfield"
+                fieldLabel="Language Link"
+                name="./languageLink"
+                rootPath="/content"/>
+
+
+            <!-- Sign In -->
+
+            <showSignIn
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="granite/ui/components/coral/foundation/form/checkbox"
+                fieldLabel="Sign In"
+                text="Show Sign In"
+                name="./showSignIn"
+                value="true"
+                checked="{Boolean}true"
+                uncheckedValue="false"/>
+
+            <signInLink
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="granite/ui/components/coral/foundation/form/pathfield"
+                fieldLabel="Sign In Link"
+                name="./signInLink"
+                rootPath="/content"/>
+
+
+            <!-- Marketplace -->
+
+            <showMarketplace
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="granite/ui/components/coral/foundation/form/checkbox"
+                fieldLabel="Marketplace"
+                text="Show Marketplace"
+                name="./showMarketplace"
+                value="true"
+                checked="{Boolean}true"
+                uncheckedValue="false"/>
+
+            <marketplaceLink
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="granite/ui/components/coral/foundation/form/pathfield"
+                fieldLabel="Marketplace Link"
+                name="./marketplaceLink"
+                rootPath="/content"/>
+
+        </items>
+    </content>
+</jcr:root>

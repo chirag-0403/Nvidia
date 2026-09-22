@@ -1,0 +1,233 @@
+<sly data-sly-use.model="com.nvidia.core.models.CustomHeaderModel"></sly>
+
+<header class="nv-header">
+
+    <div class="nv-header__inner">
+
+        <!-- ===================================================== -->
+        <!-- LOGO -->
+        <!-- ===================================================== -->
+
+        <a
+            class="nv-header__logo"
+            href="${model.logoLink}">
+
+            <img
+                src="${model.logo}"
+                alt="NVIDIA"
+                class="nv-header__logo-image"/>
+
+        </a>
+
+
+        <!-- ===================================================== -->
+        <!-- NAVIGATION -->
+        <!-- ===================================================== -->
+
+        <nav class="nv-header__nav">
+
+            <!-- Products -->
+
+            <a
+                href="${model.productsLink}"
+                class="nv-header__nav-link">
+
+                ${model.productsLabel}
+
+            </a>
+
+
+            <!-- Solutions -->
+
+            <a
+                href="${model.solutionsLink}"
+                class="nv-header__nav-link">
+
+                ${model.solutionsLabel}
+
+            </a>
+
+
+            <!-- Industries -->
+
+            <a
+                href="${model.industriesLink}"
+                class="nv-header__nav-link">
+
+                ${model.industriesLabel}
+
+            </a>
+
+
+            <!-- Resources -->
+
+            <a
+                href="${model.resourcesLink}"
+                class="nv-header__nav-link">
+
+                ${model.resourcesLabel}
+
+            </a>
+
+
+            <!-- Company -->
+
+            <a
+                href="${model.companyLink}"
+                class="nv-header__nav-link">
+
+                ${model.companyLabel}
+
+            </a>
+
+        </nav>
+
+
+        <!-- ===================================================== -->
+        <!-- ACTIONS -->
+        <!-- ===================================================== -->
+
+        <div class="nv-header__actions">
+
+
+            <!-- ================================================= -->
+            <!-- LANGUAGE -->
+            <!-- ================================================= -->
+
+            <a
+                data-sly-test="${model.showLanguage}"
+                class="nv-header__language"
+                href="${model.languageLink}"
+                aria-label="Language">
+
+                <svg
+                    viewBox="0 0 24 24"
+                    class="nv-header__icon">
+
+                    <circle
+                        cx="12"
+                        cy="12"
+                        r="8"/>
+
+                    <path d="M4 12h16"/>
+
+                    <path
+                        d="M12 4c2.5 2.2 3.5 5 3.5 8s-1 5.8-3.5 8"/>
+
+                    <path
+                        d="M12 4c-2.5 2.2-3.5 5-3.5 8s1 5.8 3.5 8"/>
+
+                </svg>
+
+                <span>IN</span>
+
+            </a>
+
+
+            <!-- ================================================= -->
+            <!-- SEARCH -->
+            <!-- ================================================= -->
+
+            <a
+                data-sly-test="${model.showSearch}"
+                class="nv-header__icon-button"
+                href="${model.searchLink}"
+                aria-label="Search">
+
+                <svg
+                    viewBox="0 0 24 24"
+                    class="nv-header__icon">
+
+                    <circle
+                        cx="10"
+                        cy="10"
+                        r="6"/>
+
+                    <path d="M15 15l6 6"/>
+
+                </svg>
+
+            </a>
+
+
+            <!-- ================================================= -->
+            <!-- SIGN IN -->
+            <!-- ================================================= -->
+
+            <a
+                data-sly-test="${model.showSignIn}"
+                href="${model.signInLink}"
+                class="nv-header__sign-in">
+
+                Sign In
+
+            </a>
+
+
+            <!-- ================================================= -->
+            <!-- MARKETPLACE -->
+            <!-- ================================================= -->
+
+            <a
+                data-sly-test="${model.showMarketplace}"
+                href="${model.marketplaceLink}"
+                class="nv-header__marketplace">
+
+                Marketplace
+
+            </a>
+
+
+            <!-- ================================================= -->
+            <!-- MOBILE MENU -->
+            <!-- ================================================= -->
+
+            <button
+                class="nv-header__menu"
+                type="button"
+                aria-label="Menu"
+                data-menu-button>
+
+                <span></span>
+                <span></span>
+                <span></span>
+
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- ========================================================= -->
+    <!-- MOBILE NAVIGATION -->
+    <!-- ========================================================= -->
+
+    <div
+        class="nv-header__mobile"
+        data-mobile-menu
+        hidden>
+
+        <a href="${model.productsLink}">
+            ${model.productsLabel}
+        </a>
+
+        <a href="${model.solutionsLink}">
+            ${model.solutionsLabel}
+        </a>
+
+        <a href="${model.industriesLink}">
+            ${model.industriesLabel}
+        </a>
+
+        <a href="${model.resourcesLink}">
+            ${model.resourcesLabel}
+        </a>
+
+        <a href="${model.companyLink}">
+            ${model.companyLabel}
+        </a>
+
+    </div>
+
+</header>

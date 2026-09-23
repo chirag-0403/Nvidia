@@ -9,24 +9,24 @@ header.experiencefragment {
         border-bottom-color: $color-foreground-dark;
     }
 
-    a {
-        color: $color-foreground;
-        text-decoration: none;
+    // a {
+    //     color: $color-foreground;
+    //     text-decoration: none;
 
-        @media (prefers-color-scheme: dark) {
-            color: $color-foreground-dark;
-        }
+    //     @media (prefers-color-scheme: dark) {
+    //         color: $color-foreground-dark;
+    //     }
 
-        &:hover,
-        &:focus {
-            color: $color-link;
-            text-decoration: underline;
+    //     &:hover,
+    //     &:focus {
+    //         color: $color-link;
+    //         text-decoration: underline;
 
-            @media (prefers-color-scheme: dark) {
-                color: $color-link-dark;
-            }
-        }
-    }
+    //         @media (prefers-color-scheme: dark) {
+    //             color: $color-link-dark;
+    //         }
+    //     }
+    // }
 
     //== Grid layout
 

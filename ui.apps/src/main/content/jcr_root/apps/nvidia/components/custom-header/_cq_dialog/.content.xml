@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <jcr:root
-    xmlns:sling="http://sling.apache.org/sling/1.0"
+    xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
+    xmlns:cq="http://www.day.com/jcr/cq/1.0"
     xmlns:jcr="http://www.jcp.org/jcr/1.0"
     xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    xmlns:granite="http://www.adobe.com/jcr/granite/1.0"
     jcr:primaryType="nt:unstructured"
-    jcr:title="NVIDIA Header"
+    jcr:title="Custom Footer"
     sling:resourceType="cq/gui/components/authoring/dialog">
 
     <content
@@ -14,9 +16,9 @@
 
         <items jcr:primaryType="nt:unstructured">
 
-            <!-- ===================================================== -->
+            <!-- ================================================= -->
             <!-- LOGO -->
-            <!-- ===================================================== -->
+            <!-- ================================================= -->
 
             <logo
                 jcr:primaryType="nt:unstructured"
@@ -33,100 +35,303 @@
                 rootPath="/content"/>
 
 
-            <!-- ===================================================== -->
-            <!-- NAVIGATION -->
-            <!-- ===================================================== -->
+            <!-- ================================================= -->
+            <!-- PRODUCTS -->
+            <!-- ================================================= -->
 
-            <!-- Products -->
-
-            <productsLabel
+            <products
                 jcr:primaryType="nt:unstructured"
-                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
-                fieldLabel="Products Label"
-                name="./productsLabel"
-                value="Products"/>
+                sling:resourceType="granite/ui/components/coral/foundation/form/fieldset"
+                jcr:title="Products">
 
-            <productsLink
+                <items jcr:primaryType="nt:unstructured">
+
+                    <productsLabel
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                        fieldLabel="Label"
+                        name="./productsLabel"
+                        value="Products"/>
+
+                    <productsLink
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="granite/ui/components/coral/foundation/form/pathfield"
+                        fieldLabel="Link"
+                        name="./productsLink"
+                        rootPath="/content"/>
+
+                    <productsMegaMenu
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="granite/ui/components/coral/foundation/form/multifield"
+                        fieldLabel="Mega Menu Items"
+                        composite="{Boolean}true">
+
+                        <field
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="granite/ui/components/coral/foundation/container"
+                            name="./productsMegaMenu">
+
+                            <items jcr:primaryType="nt:unstructured">
+
+                                <title
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                    fieldLabel="Title"
+                                    name="./title"/>
+
+                                <description
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="granite/ui/components/coral/foundation/form/textarea"
+                                    fieldLabel="Description"
+                                    name="./description"/>
+
+                                <link
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="granite/ui/components/coral/foundation/form/pathfield"
+                                    fieldLabel="Link"
+                                    name="./link"
+                                    rootPath="/content"/>
+
+                            </items>
+
+                        </field>
+
+                    </productsMegaMenu>
+
+                </items>
+
+            </products>
+
+
+            <!-- ================================================= -->
+            <!-- SOLUTIONS -->
+            <!-- ================================================= -->
+
+            <solutions
                 jcr:primaryType="nt:unstructured"
-                sling:resourceType="granite/ui/components/coral/foundation/form/pathfield"
-                fieldLabel="Products Link"
-                name="./productsLink"
-                rootPath="/content"/>
+                sling:resourceType="granite/ui/components/coral/foundation/form/fieldset"
+                jcr:title="Solutions">
+
+                <items jcr:primaryType="nt:unstructured">
+
+                    <solutionsLabel
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                        fieldLabel="Label"
+                        name="./solutionsLabel"
+                        value="Solutions"/>
+
+                    <solutionsLink
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="granite/ui/components/coral/foundation/form/pathfield"
+                        fieldLabel="Link"
+                        name="./solutionsLink"
+                        rootPath="/content"/>
+
+                    <solutionsMegaMenu
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="granite/ui/components/coral/foundation/form/multifield"
+                        fieldLabel="Mega Menu Items"
+                        composite="{Boolean}true">
+
+                        <field
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="granite/ui/components/coral/foundation/container"
+                            name="./solutionsMegaMenu">
+
+                            <items jcr:primaryType="nt:unstructured">
+
+                                <title
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                    fieldLabel="Title"
+                                    name="./title"/>
+
+                                <description
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="granite/ui/components/coral/foundation/form/textarea"
+                                    fieldLabel="Description"
+                                    name="./description"/>
+
+                                <link
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="granite/ui/components/coral/foundation/form/pathfield"
+                                    fieldLabel="Link"
+                                    name="./link"
+                                    rootPath="/content"/>
+
+                            </items>
+
+                        </field>
+
+                    </solutionsMegaMenu>
+
+                </items>
+
+            </solutions>
 
 
-            <!-- Solutions -->
+            <!-- ================================================= -->
+            <!-- INDUSTRIES -->
+            <!-- ================================================= -->
 
-            <solutionsLabel
+            <industries
                 jcr:primaryType="nt:unstructured"
-                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
-                fieldLabel="Solutions Label"
-                name="./solutionsLabel"
-                value="Solutions"/>
+                sling:resourceType="granite/ui/components/coral/foundation/form/fieldset"
+                jcr:title="Industries">
 
-            <solutionsLink
+                <items jcr:primaryType="nt:unstructured">
+
+                    <industriesLabel
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                        fieldLabel="Label"
+                        name="./industriesLabel"
+                        value="Industries"/>
+
+                    <industriesLink
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="granite/ui/components/coral/foundation/form/pathfield"
+                        fieldLabel="Link"
+                        name="./industriesLink"
+                        rootPath="/content"/>
+
+                    <industriesMegaMenu
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="granite/ui/components/coral/foundation/form/multifield"
+                        fieldLabel="Mega Menu Items"
+                        composite="{Boolean}true">
+
+                        <field
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="granite/ui/components/coral/foundation/container"
+                            name="./industriesMegaMenu">
+
+                            <items jcr:primaryType="nt:unstructured">
+
+                                <title
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                    fieldLabel="Title"
+                                    name="./title"/>
+
+                                <description
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="granite/ui/components/coral/foundation/form/textarea"
+                                    fieldLabel="Description"
+                                    name="./description"/>
+
+                                <link
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="granite/ui/components/coral/foundation/form/pathfield"
+                                    fieldLabel="Link"
+                                    name="./link"
+                                    rootPath="/content"/>
+
+                            </items>
+
+                        </field>
+
+                    </industriesMegaMenu>
+
+                </items>
+
+            </industries>
+
+
+            <!-- ================================================= -->
+            <!-- SHOP -->
+            <!-- ================================================= -->
+
+            <shop
                 jcr:primaryType="nt:unstructured"
-                sling:resourceType="granite/ui/components/coral/foundation/form/pathfield"
-                fieldLabel="Solutions Link"
-                name="./solutionsLink"
-                rootPath="/content"/>
+                sling:resourceType="granite/ui/components/coral/foundation/form/fieldset"
+                jcr:title="Shop">
+
+                <items jcr:primaryType="nt:unstructured">
+
+                    <shopLabel
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                        fieldLabel="Label"
+                        name="./shopLabel"
+                        value="Shop"/>
+
+                    <shopLink
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="granite/ui/components/coral/foundation/form/pathfield"
+                        fieldLabel="Link"
+                        name="./shopLink"
+                        rootPath="/content"/>
+
+                </items>
+
+            </shop>
 
 
-            <!-- Industries -->
+            <!-- ================================================= -->
+            <!-- DRIVERS -->
+            <!-- ================================================= -->
 
-            <industriesLabel
+            <drivers
                 jcr:primaryType="nt:unstructured"
-                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
-                fieldLabel="Industries Label"
-                name="./industriesLabel"
-                value="Industries"/>
+                sling:resourceType="granite/ui/components/coral/foundation/form/fieldset"
+                jcr:title="Drivers">
 
-            <industriesLink
+                <items jcr:primaryType="nt:unstructured">
+
+                    <driversLabel
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                        fieldLabel="Label"
+                        name="./driversLabel"
+                        value="Drivers"/>
+
+                    <driversLink
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="granite/ui/components/coral/foundation/form/pathfield"
+                        fieldLabel="Link"
+                        name="./driversLink"
+                        rootPath="/content"/>
+
+                </items>
+
+            </drivers>
+
+
+            <!-- ================================================= -->
+            <!-- SUPPORT -->
+            <!-- ================================================= -->
+
+            <support
                 jcr:primaryType="nt:unstructured"
-                sling:resourceType="granite/ui/components/coral/foundation/form/pathfield"
-                fieldLabel="Industries Link"
-                name="./industriesLink"
-                rootPath="/content"/>
+                sling:resourceType="granite/ui/components/coral/foundation/form/fieldset"
+                jcr:title="Support">
+
+                <items jcr:primaryType="nt:unstructured">
+
+                    <supportLabel
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                        fieldLabel="Label"
+                        name="./supportLabel"
+                        value="Support"/>
+
+                    <supportLink
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="granite/ui/components/coral/foundation/form/pathfield"
+                        fieldLabel="Link"
+                        name="./supportLink"
+                        rootPath="/content"/>
+
+                </items>
+
+            </support>
 
 
-            <!-- Resources -->
-
-            <resourcesLabel
-                jcr:primaryType="nt:unstructured"
-                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
-                fieldLabel="Resources Label"
-                name="./resourcesLabel"
-                value="Resources"/>
-
-            <resourcesLink
-                jcr:primaryType="nt:unstructured"
-                sling:resourceType="granite/ui/components/coral/foundation/form/pathfield"
-                fieldLabel="Resources Link"
-                name="./resourcesLink"
-                rootPath="/content"/>
-
-
-            <!-- Company -->
-
-            <companyLabel
-                jcr:primaryType="nt:unstructured"
-                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
-                fieldLabel="Company Label"
-                name="./companyLabel"
-                value="Company"/>
-
-            <companyLink
-                jcr:primaryType="nt:unstructured"
-                sling:resourceType="granite/ui/components/coral/foundation/form/pathfield"
-                fieldLabel="Company Link"
-                name="./companyLink"
-                rootPath="/content"/>
-
-
-            <!-- ===================================================== -->
-            <!-- HEADER ACTIONS -->
-            <!-- ===================================================== -->
-
-            <!-- Search -->
+            <!-- ================================================= -->
+            <!-- SEARCH -->
+            <!-- ================================================= -->
 
             <showSearch
                 jcr:primaryType="nt:unstructured"
@@ -146,7 +351,9 @@
                 rootPath="/content"/>
 
 
-            <!-- Language -->
+            <!-- ================================================= -->
+            <!-- LANGUAGE -->
+            <!-- ================================================= -->
 
             <showLanguage
                 jcr:primaryType="nt:unstructured"
@@ -166,7 +373,9 @@
                 rootPath="/content"/>
 
 
-            <!-- Sign In -->
+            <!-- ================================================= -->
+            <!-- SIGN IN -->
+            <!-- ================================================= -->
 
             <showSignIn
                 jcr:primaryType="nt:unstructured"
@@ -185,26 +394,8 @@
                 name="./signInLink"
                 rootPath="/content"/>
 
-
-            <!-- Marketplace -->
-
-            <showMarketplace
-                jcr:primaryType="nt:unstructured"
-                sling:resourceType="granite/ui/components/coral/foundation/form/checkbox"
-                fieldLabel="Marketplace"
-                text="Show Marketplace"
-                name="./showMarketplace"
-                value="true"
-                checked="{Boolean}true"
-                uncheckedValue="false"/>
-
-            <marketplaceLink
-                jcr:primaryType="nt:unstructured"
-                sling:resourceType="granite/ui/components/coral/foundation/form/pathfield"
-                fieldLabel="Marketplace Link"
-                name="./marketplaceLink"
-                rootPath="/content"/>
-
         </items>
+
     </content>
+
 </jcr:root>

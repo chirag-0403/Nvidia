@@ -1,8 +1,12 @@
 package com.nvidia.core.models;
 
+import java.util.Collections;
+import java.util.List;
+
 import org.apache.sling.api.resource.Resource;
 import org.apache.sling.models.annotations.DefaultInjectionStrategy;
 import org.apache.sling.models.annotations.Model;
+import org.apache.sling.models.annotations.injectorspecific.ChildResource;
 import org.apache.sling.models.annotations.injectorspecific.ValueMapValue;
 
 @Model(
@@ -12,7 +16,7 @@ import org.apache.sling.models.annotations.injectorspecific.ValueMapValue;
 public class CustomHeaderModel {
 
     // =========================================================
-    // Logo
+    // LOGO
     // =========================================================
 
     @ValueMapValue
@@ -23,7 +27,7 @@ public class CustomHeaderModel {
 
 
     // =========================================================
-    // Navigation
+    // PRIMARY NAVIGATION
     // =========================================================
 
     @ValueMapValue
@@ -44,21 +48,60 @@ public class CustomHeaderModel {
     @ValueMapValue
     private String industriesLink;
 
-    @ValueMapValue
-    private String resourcesLabel;
 
-    @ValueMapValue
-    private String resourcesLink;
+    // =========================================================
+    // MEGA MENU
+    // =========================================================
+    //
+    // The child-resource names must match the dialog/storage
+    // structure.
+    //
+    // Dialog/resource names:
+    //   productsMegaMenu
+    //   solutionsMegaMenu
+    //   industriesMegaMenu
+    //
+    // HTL-facing model properties:
+    //   productsItems
+    //   solutionsItems
+    //   industriesItems
+    //
 
-    @ValueMapValue
-    private String companyLabel;
+    @ChildResource(name = "productsMegaMenu")
+    private List<MegaMenuItem> productsItems;
 
-    @ValueMapValue
-    private String companyLink;
+    @ChildResource(name = "solutionsMegaMenu")
+    private List<MegaMenuItem> solutionsItems;
+
+    @ChildResource(name = "industriesMegaMenu")
+    private List<MegaMenuItem> industriesItems;
 
 
     // =========================================================
-    // Header Actions - Show / Hide
+    // RIGHT-SIDE NAVIGATION
+    // =========================================================
+
+    @ValueMapValue
+    private String shopLabel;
+
+    @ValueMapValue
+    private String shopLink;
+
+    @ValueMapValue
+    private String driversLabel;
+
+    @ValueMapValue
+    private String driversLink;
+
+    @ValueMapValue
+    private String supportLabel;
+
+    @ValueMapValue
+    private String supportLink;
+
+
+    // =========================================================
+    // HEADER ACTIONS
     // =========================================================
 
     @ValueMapValue
@@ -70,12 +113,9 @@ public class CustomHeaderModel {
     @ValueMapValue
     private boolean showSignIn;
 
-    @ValueMapValue
-    private boolean showMarketplace;
-
 
     // =========================================================
-    // Header Actions - Links
+    // HEADER ACTION LINKS
     // =========================================================
 
     @ValueMapValue
@@ -87,30 +127,18 @@ public class CustomHeaderModel {
     @ValueMapValue
     private String signInLink;
 
-    @ValueMapValue
-    private String marketplaceLink;
-
 
     // =========================================================
-    // URL Helper
+    // URL HELPER
     // =========================================================
 
-    /**
-     * Converts an AEM content path into a page URL.
-     *
-     * Example:
-     *
-     * /content/nvidia/us/en/company
-     *
-     * becomes:
-     *
-     * /content/nvidia/us/en/company.html
-     */
     private String pageUrl(String path) {
 
-        if (path == null || path.isEmpty()) {
+        if (path == null || path.trim().isEmpty()) {
             return "#";
         }
+
+        path = path.trim();
 
         // External URL
         if (path.startsWith("http://")
@@ -120,10 +148,13 @@ public class CustomHeaderModel {
             return path;
         }
 
-        // Already has an extension
-        if (path.endsWith(".html")
-                || path.contains(".")) {
+        // Already has .html
+        if (path.endsWith(".html")) {
+            return path;
+        }
 
+        // Other URLs containing an extension
+        if (path.contains(".")) {
             return path;
         }
 
@@ -137,7 +168,7 @@ public class CustomHeaderModel {
 
 
     // =========================================================
-    // Logo
+    // LOGO
     // =========================================================
 
     public String getLogo() {
@@ -150,7 +181,7 @@ public class CustomHeaderModel {
 
 
     // =========================================================
-    // Products
+    // PRODUCTS
     // =========================================================
 
     public String getProductsLabel() {
@@ -166,9 +197,18 @@ public class CustomHeaderModel {
         return pageUrl(productsLink);
     }
 
+    public List<MegaMenuItem> getProductsItems() {
+
+        if (productsItems != null) {
+            return productsItems;
+        }
+
+        return Collections.emptyList();
+    }
+
 
     // =========================================================
-    // Solutions
+    // SOLUTIONS
     // =========================================================
 
     public String getSolutionsLabel() {
@@ -184,9 +224,18 @@ public class CustomHeaderModel {
         return pageUrl(solutionsLink);
     }
 
+    public List<MegaMenuItem> getSolutionsItems() {
+
+        if (solutionsItems != null) {
+            return solutionsItems;
+        }
+
+        return Collections.emptyList();
+    }
+
 
     // =========================================================
-    // Industries
+    // INDUSTRIES
     // =========================================================
 
     public String getIndustriesLabel() {
@@ -202,45 +251,72 @@ public class CustomHeaderModel {
         return pageUrl(industriesLink);
     }
 
+    public List<MegaMenuItem> getIndustriesItems() {
 
-    // =========================================================
-    // Resources
-    // =========================================================
-
-    public String getResourcesLabel() {
-
-        if (resourcesLabel != null && !resourcesLabel.isEmpty()) {
-            return resourcesLabel;
+        if (industriesItems != null) {
+            return industriesItems;
         }
 
-        return "Resources";
-    }
-
-    public String getResourcesLink() {
-        return pageUrl(resourcesLink);
+        return Collections.emptyList();
     }
 
 
     // =========================================================
-    // Company
+    // SHOP
     // =========================================================
 
-    public String getCompanyLabel() {
+    public String getShopLabel() {
 
-        if (companyLabel != null && !companyLabel.isEmpty()) {
-            return companyLabel;
+        if (shopLabel != null && !shopLabel.isEmpty()) {
+            return shopLabel;
         }
 
-        return "Company";
+        return "Shop";
     }
 
-    public String getCompanyLink() {
-        return pageUrl(companyLink);
+    public String getShopLink() {
+        return pageUrl(shopLink);
     }
 
 
     // =========================================================
-    // Header Actions - Show / Hide
+    // DRIVERS
+    // =========================================================
+
+    public String getDriversLabel() {
+
+        if (driversLabel != null && !driversLabel.isEmpty()) {
+            return driversLabel;
+        }
+
+        return "Drivers";
+    }
+
+    public String getDriversLink() {
+        return pageUrl(driversLink);
+    }
+
+
+    // =========================================================
+    // SUPPORT
+    // =========================================================
+
+    public String getSupportLabel() {
+
+        if (supportLabel != null && !supportLabel.isEmpty()) {
+            return supportLabel;
+        }
+
+        return "Support";
+    }
+
+    public String getSupportLink() {
+        return pageUrl(supportLink);
+    }
+
+
+    // =========================================================
+    // HEADER ACTIONS
     // =========================================================
 
     public boolean isShowSearch() {
@@ -255,28 +331,30 @@ public class CustomHeaderModel {
         return showSignIn;
     }
 
-    public boolean isShowMarketplace() {
-        return showMarketplace;
-    }
-
 
     // =========================================================
-    // Header Actions - Links
+    // SEARCH
     // =========================================================
 
     public String getSearchLink() {
         return pageUrl(searchLink);
     }
 
+
+    // =========================================================
+    // LANGUAGE
+    // =========================================================
+
     public String getLanguageLink() {
         return pageUrl(languageLink);
     }
 
+
+    // =========================================================
+    // SIGN IN
+    // =========================================================
+
     public String getSignInLink() {
         return pageUrl(signInLink);
-    }
-
-    public String getMarketplaceLink() {
-        return pageUrl(marketplaceLink);
     }
 }

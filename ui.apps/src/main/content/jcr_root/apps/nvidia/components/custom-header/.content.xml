@@ -5,4 +5,4 @@
     xmlns:jcr="http://www.jcp.org/jcr/1.0"
     jcr:primaryType="cq:Component"
     jcr:title="NVIDIA Custom Header"
-    componentGroup="NVIDIA Components"/>
+    componentGroup="NVIDIA Components"/> 

@@ -11,21 +11,9 @@
 
         headers.forEach(function (header) {
 
-            // =========================================================
-            // ELEMENTS
-            // =========================================================
-
-            const menuButton = header.querySelector(
-                "[data-menu-button]"
-            );
-
-            const mobileMenu = header.querySelector(
-                "[data-mobile-menu]"
-            );
-
-            const megaMenuItems = header.querySelectorAll(
-                "[data-mega-menu]"
-            );
+            const menuButton = header.querySelector("[data-menu-button]");
+            const mobileMenu = header.querySelector("[data-mobile-menu]");
+            const megaMenuItems = header.querySelectorAll("[data-mega-menu]");
 
 
             // =========================================================
@@ -34,7 +22,10 @@
 
             if (menuButton && mobileMenu) {
 
-                menuButton.addEventListener("click", function () {
+                menuButton.addEventListener("click", function (event) {
+
+                    event.preventDefault();
+                    event.stopPropagation();
 
                     const isOpen = !mobileMenu.hidden;
 
@@ -47,8 +38,6 @@
                 });
 
 
-                // Close mobile menu after clicking a link
-
                 const mobileLinks = mobileMenu.querySelectorAll("a");
 
                 mobileLinks.forEach(function (link) {
@@ -58,7 +47,6 @@
                     });
 
                 });
-
             }
 
 
@@ -68,40 +56,83 @@
 
             megaMenuItems.forEach(function (item) {
 
-                const trigger = item.querySelector(
-                    "[data-mega-trigger]"
-                );
-
-                const megaMenu = item.querySelector(
-                    "[data-mega-panel]"
-                );
+                const trigger = item.querySelector("[data-mega-trigger]");
+                const megaMenu = item.querySelector("[data-mega-panel]");
 
                 if (!trigger || !megaMenu) {
                     return;
                 }
 
 
-                // -----------------------------------------------------
-                // Accessibility state
-                // -----------------------------------------------------
+                // Initial state
 
-                trigger.setAttribute(
-                    "aria-expanded",
-                    "false"
-                );
+                trigger.setAttribute("aria-expanded", "false");
 
 
-                // -----------------------------------------------------
-                // Mouse enter
-                // -----------------------------------------------------
+                // =====================================================
+                // MOUSE ENTER
+                // =====================================================
 
-                item.addEventListener(
-                    "mouseenter",
-                    function () {
+                item.addEventListener("mouseenter", function () {
 
-                        if (window.innerWidth <= 850) {
-                            return;
-                        }
+                    if (window.innerWidth <= 850) {
+                        return;
+                    }
+
+                    closeAllMegaMenus(header, item);
+
+                    item.classList.add("is-open");
+
+                    trigger.setAttribute(
+                        "aria-expanded",
+                        "true"
+                    );
+
+                });
+
+
+                // =====================================================
+                // MOUSE LEAVE
+                // =====================================================
+
+                item.addEventListener("mouseleave", function () {
+
+                    if (window.innerWidth <= 850) {
+                        return;
+                    }
+
+                    item.classList.remove("is-open");
+
+                    trigger.setAttribute(
+                        "aria-expanded",
+                        "false"
+                    );
+
+                });
+
+
+                // =====================================================
+                // KEYBOARD
+                // =====================================================
+
+                trigger.addEventListener("keydown", function (event) {
+
+                    if (event.key === "Escape") {
+
+                        closeAllMegaMenus(header);
+
+                        trigger.focus();
+
+                        return;
+                    }
+
+
+                    if (
+                        event.key === "ArrowDown" &&
+                        window.innerWidth > 850
+                    ) {
+
+                        event.preventDefault();
 
                         closeAllMegaMenus(header, item);
 
@@ -112,142 +143,77 @@
                             "true"
                         );
 
-                    }
-                );
 
-
-                // -----------------------------------------------------
-                // Mouse leave
-                // -----------------------------------------------------
-
-                item.addEventListener(
-                    "mouseleave",
-                    function () {
-
-                        if (window.innerWidth <= 850) {
-                            return;
-                        }
-
-                        item.classList.remove("is-open");
-
-                        trigger.setAttribute(
-                            "aria-expanded",
-                            "false"
-                        );
-
-                    }
-                );
-
-
-                // -----------------------------------------------------
-                // Keyboard support
-                // -----------------------------------------------------
-
-                trigger.addEventListener(
-                    "keydown",
-                    function (event) {
-
-                        if (event.key === "Escape") {
-
-                            closeAllMegaMenus(header);
-
-                            trigger.focus();
-
-                            return;
-                        }
-
-                        if (
-                            event.key === "ArrowDown" &&
-                            window.innerWidth > 850
-                        ) {
-
-                            event.preventDefault();
-
-                            closeAllMegaMenus(header, item);
-
-                            item.classList.add("is-open");
-
-                            trigger.setAttribute(
-                                "aria-expanded",
-                                "true"
+                        const firstLink =
+                            megaMenu.querySelector(
+                                ".nv-header__mega-item"
                             );
 
-                            const firstLink =
-                                megaMenu.querySelector("a");
-
-                            if (firstLink) {
-                                firstLink.focus();
-                            }
-
+                        if (firstLink) {
+                            firstLink.focus();
                         }
 
                     }
-                );
+
+                });
 
             });
 
 
             // =========================================================
-            // CLICK OUTSIDE HEADER
+            // CLICK OUTSIDE
             // =========================================================
 
-            document.addEventListener(
-                "click",
-                function (event) {
+            document.addEventListener("click", function (event) {
 
-                    if (!header.contains(event.target)) {
-
-                        closeAllMegaMenus(header);
-
-                    }
-
-                }
-            );
-
-
-            // =========================================================
-            // ESCAPE KEY
-            // =========================================================
-
-            document.addEventListener(
-                "keydown",
-                function (event) {
-
-                    if (event.key !== "Escape") {
-                        return;
-                    }
+                if (!header.contains(event.target)) {
 
                     closeAllMegaMenus(header);
 
-                    if (
-                        mobileMenu &&
-                        !mobileMenu.hidden
-                    ) {
-
+                    if (mobileMenu && !mobileMenu.hidden) {
                         closeMobileMenu(header);
-
                     }
 
                 }
-            );
+
+            });
 
 
             // =========================================================
-            // WINDOW RESIZE
+            // ESCAPE
             // =========================================================
 
-            window.addEventListener(
-                "resize",
-                function () {
+            document.addEventListener("keydown", function (event) {
 
-                    if (window.innerWidth <= 850) {
+                if (event.key !== "Escape") {
+                    return;
+                }
 
-                        closeAllMegaMenus(header);
+                closeAllMegaMenus(header);
 
-                    }
+                if (
+                    mobileMenu &&
+                    !mobileMenu.hidden
+                ) {
+                    closeMobileMenu(header);
+                }
+
+            });
+
+
+            // =========================================================
+            // RESIZE
+            // =========================================================
+
+            window.addEventListener("resize", function () {
+
+                if (window.innerWidth <= 850) {
+
+                    closeAllMegaMenus(header);
 
                 }
-            );
+
+            });
 
         });
     }
@@ -259,13 +225,11 @@
 
     function openMobileMenu(header) {
 
-        const menuButton = header.querySelector(
-            "[data-menu-button]"
-        );
+        const menuButton =
+            header.querySelector("[data-menu-button]");
 
-        const mobileMenu = header.querySelector(
-            "[data-mobile-menu]"
-        );
+        const mobileMenu =
+            header.querySelector("[data-mobile-menu]");
 
         if (!menuButton || !mobileMenu) {
             return;
@@ -278,9 +242,7 @@
             "true"
         );
 
-        menuButton.classList.add(
-            "is-open"
-        );
+        menuButton.classList.add("is-open");
 
         header.classList.add(
             "nv-header--menu-open"
@@ -295,13 +257,11 @@
 
     function closeMobileMenu(header) {
 
-        const menuButton = header.querySelector(
-            "[data-menu-button]"
-        );
+        const menuButton =
+            header.querySelector("[data-menu-button]");
 
-        const mobileMenu = header.querySelector(
-            "[data-mobile-menu]"
-        );
+        const mobileMenu =
+            header.querySelector("[data-mobile-menu]");
 
         if (!menuButton || !mobileMenu) {
             return;
@@ -314,9 +274,7 @@
             "false"
         );
 
-        menuButton.classList.remove(
-            "is-open"
-        );
+        menuButton.classList.remove("is-open");
 
         header.classList.remove(
             "nv-header--menu-open"
@@ -329,14 +287,10 @@
     // CLOSE ALL MEGA MENUS
     // =============================================================
 
-    function closeAllMegaMenus(
-        header,
-        exceptItem
-    ) {
+    function closeAllMegaMenus(header, exceptItem) {
 
-        const items = header.querySelectorAll(
-            "[data-mega-menu]"
-        );
+        const items =
+            header.querySelectorAll("[data-mega-menu]");
 
         items.forEach(function (item) {
 
@@ -344,13 +298,10 @@
                 return;
             }
 
-            item.classList.remove(
-                "is-open"
-            );
+            item.classList.remove("is-open");
 
-            const trigger = item.querySelector(
-                "[data-mega-trigger]"
-            );
+            const trigger =
+                item.querySelector("[data-mega-trigger]");
 
             if (trigger) {
 

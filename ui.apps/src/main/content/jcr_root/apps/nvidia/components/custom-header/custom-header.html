@@ -17,7 +17,7 @@
                 src="${model.logo}"
                 alt="NVIDIA"
                 class="nv-header__logo-image"
-                loading="eager"/>
+                loading="eager" />
 
         </a>
 
@@ -30,7 +30,9 @@
             class="nv-header__nav"
             aria-label="Primary navigation">
 
-            <!-- PRODUCTS -->
+            <!-- =================================================
+                 PRODUCTS
+                 ================================================= -->
 
             <div
                 class="nv-header__nav-item"
@@ -51,7 +53,7 @@
                         viewBox="0 0 10 6"
                         aria-hidden="true">
 
-                        <path d="M1 1L5 5L9 1"/>
+                        <path d="M1 1L5 5L9 1"></path>
 
                     </svg>
 
@@ -73,8 +75,8 @@
                                 href="${model.productsLink}"
                                 class="nv-header__mega-view-all">
 
-                                View All Products
-                                <span>→</span>
+                                <span>View All Products</span>
+                                <span aria-hidden="true">→</span>
 
                             </a>
 
@@ -83,33 +85,39 @@
 
                         <div class="nv-header__mega-grid">
 
-                            <a
-                                data-sly-list.item="${model.productsItems}"
-                                href="${item.link}"
-                                class="nv-header__mega-item">
+                            <sly data-sly-list.item="${model.productsItems}">
 
-                                <div class="nv-header__mega-item-content">
+                                <a
+                                    href="${item.link}"
+                                    class="nv-header__mega-item">
 
-                                    <span class="nv-header__mega-title">
-                                        ${item.label}
-                                    </span>
+                                    <div class="nv-header__mega-item-content">
+
+                                        <span class="nv-header__mega-title">
+                                            ${item.title}
+                                        </span>
+
+                                        <span
+                                            data-sly-test="${item.description}"
+                                            class="nv-header__mega-description">
+
+                                            ${item.description}
+
+                                        </span>
+
+                                    </div>
 
                                     <span
-                                        data-sly-test="${item.description}"
-                                        class="nv-header__mega-description">
+                                        class="nv-header__mega-arrow"
+                                        aria-hidden="true">
 
-                                        ${item.description}
+                                        →
 
                                     </span>
 
-                                </div>
+                                </a>
 
-                                <span class="nv-header__mega-arrow">
-                                    →
-
-                                </span>
-
-                            </a>
+                            </sly>
 
                         </div>
 
@@ -120,7 +128,9 @@
             </div>
 
 
-            <!-- SOLUTIONS -->
+            <!-- =================================================
+                 SOLUTIONS
+                 ================================================= -->
 
             <div
                 class="nv-header__nav-item"
@@ -141,7 +151,7 @@
                         viewBox="0 0 10 6"
                         aria-hidden="true">
 
-                        <path d="M1 1L5 5L9 1"/>
+                        <path d="M1 1L5 5L9 1"></path>
 
                     </svg>
 
@@ -163,8 +173,8 @@
                                 href="${model.solutionsLink}"
                                 class="nv-header__mega-view-all">
 
-                                View All Solutions
-                                <span>→</span>
+                                <span>View All Solutions</span>
+                                <span aria-hidden="true">→</span>
 
                             </a>
 
@@ -173,33 +183,39 @@
 
                         <div class="nv-header__mega-grid">
 
-                            <a
-                                data-sly-list.item="${model.solutionsItems}"
-                                href="${item.link}"
-                                class="nv-header__mega-item">
+                            <sly data-sly-list.item="${model.solutionsItems}">
 
-                                <div class="nv-header__mega-item-content">
+                                <a
+                                    href="${item.link}"
+                                    class="nv-header__mega-item">
 
-                                    <span class="nv-header__mega-title">
-                                        ${item.label}
-                                    </span>
+                                    <div class="nv-header__mega-item-content">
+
+                                        <span class="nv-header__mega-title">
+                                            ${item.title}
+                                        </span>
+
+                                        <span
+                                            data-sly-test="${item.description}"
+                                            class="nv-header__mega-description">
+
+                                            ${item.description}
+
+                                        </span>
+
+                                    </div>
 
                                     <span
-                                        data-sly-test="${item.description}"
-                                        class="nv-header__mega-description">
+                                        class="nv-header__mega-arrow"
+                                        aria-hidden="true">
 
-                                        ${item.description}
+                                        →
 
                                     </span>
 
-                                </div>
+                                </a>
 
-                                <span class="nv-header__mega-arrow">
-                                    →
-
-                                </span>
-
-                            </a>
+                            </sly>
 
                         </div>
 
@@ -210,7 +226,9 @@
             </div>
 
 
-            <!-- INDUSTRIES -->
+            <!-- =================================================
+                 INDUSTRIES
+                 ================================================= -->
 
             <div
                 class="nv-header__nav-item"
@@ -231,7 +249,7 @@
                         viewBox="0 0 10 6"
                         aria-hidden="true">
 
-                        <path d="M1 1L5 5L9 1"/>
+                        <path d="M1 1L5 5L9 1"></path>
 
                     </svg>
 
@@ -253,8 +271,8 @@
                                 href="${model.industriesLink}"
                                 class="nv-header__mega-view-all">
 
-                                View All Industries
-                                <span>→</span>
+                                <span>View All Industries</span>
+                                <span aria-hidden="true">→</span>
 
                             </a>
 
@@ -263,33 +281,39 @@
 
                         <div class="nv-header__mega-grid">
 
-                            <a
-                                data-sly-list.item="${model.industriesItems}"
-                                href="${item.link}"
-                                class="nv-header__mega-item">
+                            <sly data-sly-list.item="${model.industriesItems}">
 
-                                <div class="nv-header__mega-item-content">
+                                <a
+                                    href="${item.link}"
+                                    class="nv-header__mega-item">
 
-                                    <span class="nv-header__mega-title">
-                                        ${item.label}
-                                    </span>
+                                    <div class="nv-header__mega-item-content">
+
+                                        <span class="nv-header__mega-title">
+                                            ${item.title}
+                                        </span>
+
+                                        <span
+                                            data-sly-test="${item.description}"
+                                            class="nv-header__mega-description">
+
+                                            ${item.description}
+
+                                        </span>
+
+                                    </div>
 
                                     <span
-                                        data-sly-test="${item.description}"
-                                        class="nv-header__mega-description">
+                                        class="nv-header__mega-arrow"
+                                        aria-hidden="true">
 
-                                        ${item.description}
+                                        →
 
                                     </span>
 
-                                </div>
+                                </a>
 
-                                <span class="nv-header__mega-arrow">
-                                    →
-
-                                </span>
-
-                            </a>
+                            </sly>
 
                         </div>
 
@@ -359,9 +383,9 @@
                     <circle
                         cx="10.5"
                         cy="10.5"
-                        r="6.5"/>
+                        r="6.5"></circle>
 
-                    <path d="M15.5 15.5L21 21"/>
+                    <path d="M15.5 15.5L21 21"></path>
 
                 </svg>
 
@@ -384,13 +408,13 @@
                     <circle
                         cx="12"
                         cy="12"
-                        r="8"/>
+                        r="8"></circle>
 
-                    <path d="M4 12h16"/>
+                    <path d="M4 12h16"></path>
 
-                    <path d="M12 4c2.5 2.2 3.5 5 3.5 8s-1 5.8-3.5 8"/>
+                    <path d="M12 4c2.5 2.2 3.5 5 3.5 8s-1 5.8-3.5 8"></path>
 
-                    <path d="M12 4c-2.5 2.2-3.5 5-3.5 8s1 5.8-3.5 8"/>
+                    <path d="M12 4c-2.5 2.2-3.5 5-3.5 8s-1 5.8-3.5 8"></path>
 
                 </svg>
 
@@ -442,7 +466,9 @@
         data-mobile-menu
         hidden>
 
-        <!-- Products -->
+        <!-- =====================================================
+             PRODUCTS
+             ===================================================== -->
 
         <div class="nv-header__mobile-item">
 
@@ -458,23 +484,28 @@
                 data-sly-test="${model.productsItems.size > 0}"
                 class="nv-header__mobile-submenu">
 
-                <a
-                    data-sly-list.item="${model.productsItems}"
-                    href="${item.link}"
-                    class="nv-header__mobile-submenu-link">
+                <sly data-sly-list.item="${model.productsItems}">
 
-                    <span>
-                        ${item.label}
-                    </span>
+                    <a
+                        href="${item.link}"
+                        class="nv-header__mobile-submenu-link">
 
-                </a>
+                        <span>
+                            ${item.title}
+                        </span>
+
+                    </a>
+
+                </sly>
 
             </div>
 
         </div>
 
 
-        <!-- Solutions -->
+        <!-- =====================================================
+             SOLUTIONS
+             ===================================================== -->
 
         <div class="nv-header__mobile-item">
 
@@ -490,23 +521,28 @@
                 data-sly-test="${model.solutionsItems.size > 0}"
                 class="nv-header__mobile-submenu">
 
-                <a
-                    data-sly-list.item="${model.solutionsItems}"
-                    href="${item.link}"
-                    class="nv-header__mobile-submenu-link">
+                <sly data-sly-list.item="${model.solutionsItems}">
 
-                    <span>
-                        ${item.label}
-                    </span>
+                    <a
+                        href="${item.link}"
+                        class="nv-header__mobile-submenu-link">
 
-                </a>
+                        <span>
+                            ${item.title}
+                        </span>
+
+                    </a>
+
+                </sly>
 
             </div>
 
         </div>
 
 
-        <!-- Industries -->
+        <!-- =====================================================
+             INDUSTRIES
+             ===================================================== -->
 
         <div class="nv-header__mobile-item">
 
@@ -522,23 +558,28 @@
                 data-sly-test="${model.industriesItems.size > 0}"
                 class="nv-header__mobile-submenu">
 
-                <a
-                    data-sly-list.item="${model.industriesItems}"
-                    href="${item.link}"
-                    class="nv-header__mobile-submenu-link">
+                <sly data-sly-list.item="${model.industriesItems}">
 
-                    <span>
-                        ${item.label}
-                    </span>
+                    <a
+                        href="${item.link}"
+                        class="nv-header__mobile-submenu-link">
 
-                </a>
+                        <span>
+                            ${item.title}
+                        </span>
+
+                    </a>
+
+                </sly>
 
             </div>
 
         </div>
 
 
-        <!-- Shop -->
+        <!-- =====================================================
+             SHOP
+             ===================================================== -->
 
         <div class="nv-header__mobile-item">
 
@@ -553,7 +594,9 @@
         </div>
 
 
-        <!-- Drivers -->
+        <!-- =====================================================
+             DRIVERS
+             ===================================================== -->
 
         <div class="nv-header__mobile-item">
 
@@ -568,7 +611,9 @@
         </div>
 
 
-        <!-- Support -->
+        <!-- =====================================================
+             SUPPORT
+             ===================================================== -->
 
         <div class="nv-header__mobile-item">
 
@@ -583,7 +628,9 @@
         </div>
 
 
-        <!-- Search -->
+        <!-- =====================================================
+             SEARCH
+             ===================================================== -->
 
         <a
             data-sly-test="${model.showSearch}"
@@ -595,7 +642,9 @@
         </a>
 
 
-        <!-- Language -->
+        <!-- =====================================================
+             LANGUAGE
+             ===================================================== -->
 
         <a
             data-sly-test="${model.showLanguage}"
@@ -607,7 +656,9 @@
         </a>
 
 
-        <!-- Sign In -->
+        <!-- =====================================================
+             SIGN IN
+             ===================================================== -->
 
         <a
             data-sly-test="${model.showSignIn}"
@@ -621,3 +672,4 @@
     </div>
 
 </header>
+

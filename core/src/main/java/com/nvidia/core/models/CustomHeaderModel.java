@@ -52,20 +52,6 @@ public class CustomHeaderModel {
     // =========================================================
     // MEGA MENU
     // =========================================================
-    //
-    // The child-resource names must match the dialog/storage
-    // structure.
-    //
-    // Dialog/resource names:
-    //   productsMegaMenu
-    //   solutionsMegaMenu
-    //   industriesMegaMenu
-    //
-    // HTL-facing model properties:
-    //   productsItems
-    //   solutionsItems
-    //   industriesItems
-    //
 
     @ChildResource(name = "productsMegaMenu")
     private List<MegaMenuItem> productsItems;
